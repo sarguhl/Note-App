@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block title %}Home{% endblock %}
+{% block content %}
+<h1 align="center">Notes</h1>
+<h3 align="center" class="greettext"><span>Hello,</span> {{ user.first_name }}!<h3>
+<ul>
+    {% for note in user.notes %}
+    <div class="noteDiv">
+        <p>{{ note.data }}</p>
+        <p>{{ note.date }}</p>
+        <button type="button" class="close" onClick="deleteNote({{ note.id }})"><span aria-hidden="true">&times;</span></button>
+    </div>
+    {% endfor %}
+    <br />
+</ul>
+<form method="POST">
+    <br />
+    <textarea name="note" id="note" class="form-control" placeholder="{{ plcs }}"></textarea>
+    <br />
+    <div align="center">
+        <button type="submit" class="btn btn-primary">Add Note</button>
+    </div>
+</form>
+{% endblock %}
