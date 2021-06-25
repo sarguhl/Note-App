@@ -1,5 +1,12 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 .note_date {
     font-size: 20px;
 }
@@ -7,19 +14,15 @@
 ul {
     max-width: 90%;
     margin: 0 auto;
+    overflow: hidden;
 }
 
 .noteDiv {
-    display: grid;
-    grid-template-columns: repeat(3rem, 1fr);
-    grid-gap: 1rem;
-    margin-top: 1rem;
-    margin-right: 1rem;
-    margin-bottom: 1.5rem;
+    display: inline-table;
 
-    padding: 1rem;
+    margin: 0.4em;
 
-    float: left;
+    padding: 0.4em;
 
     width: 300px;
 
@@ -46,15 +49,34 @@ ul {
     background: none;
 }
 
+.noteDiv .time {
+    font-size: 15px;
+    font-weight: 300;
+}
+
 .noteDiv:hover {
-    -webkit-transform: rotate(3deg);
-    -moz-transform: rotate(3deg);
-    -o-transform: rotate(3deg);
-    transform: rotate(3deg);
     transition: ease-out 300ms;
     background-color: #EAF4ED;
+    cursor: pointer;
 }
 
 .greettext span {
     font-weight: 300;
 }
+
+/* (A) LIST STYLES */
+.slist {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .slist li {
+    margin: 5px;
+    padding: 10px;
+    border: 1px solid #333;
+    background: #eaeaea;
+  }
+  
+  /* (B) DRAG-AND-DROP HINT */
+  .slist li.hint { background: #fea; }
+  .slist li.active { background: #ffd4d4; }

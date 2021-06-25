@@ -3,16 +3,26 @@
 {% block content %}
 <h1 align="center">Notes</h1>
 <h3 align="center" class="greettext"><span>Hello,</span> {{ user.first_name }}!<h3>
-<ul>
+
+<ul class="center">
+    <div class="dragDiv">
     {% for note in user.notes %}
     <div class="noteDiv">
-        <p>{{ note.data }}</p>
-        <p>{{ note.date }}</p>
+        <p>📌 | {{ note.data }}</p>
+        <p class="time">{{ note.date }}</p>
         <button type="button" class="close" onClick="deleteNote({{ note.id }})"><span aria-hidden="true">&times;</span></button>
     </div>
     {% endfor %}
+    </div>
     <br />
 </ul>
+<script>
+    const dragArea = document.querySelector(".dragDiv");
+    new Sortable(dragArea, {
+        animation: 350
+    });
+</script>
+
 <form method="POST">
     <br />
     <textarea name="note" id="note" class="form-control" placeholder="{{ plcs }}"></textarea>

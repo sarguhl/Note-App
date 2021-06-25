@@ -16,6 +16,8 @@
             crossorigin="anonymous"
         />
 
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.13.0/Sortable.min.js"><script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.13.0/Sortable.min.js" integrity="sha512-5x7t0fTAVo9dpfbp3WtE2N6bfipUwk7siViWncdDoSz2KwOqVC1N9fDxEOzk0vTThOua/mglfF8NO7uVDLRC8Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script></script>
+
         <title>{% block title %}Home{% endblock %} | Pim</title>
     </head>
     <body>
@@ -32,6 +34,7 @@
                 <div class="navbar-nav">
                     {% if user.is_authenticated %}
                     <a class="nav-item nav-link" id="home" href="/">Home</a>
+                    <a class="nav-item nav-link" id="edit" href="/edit">Settings<a/>
                     <a class="nav-item nav-link" id="logout" href="/logout">Logout</a>
                     {% else %}
                     <a class="nav-item nav-link" id="login" href="/login">Login</a>
